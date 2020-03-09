@@ -1,5 +1,5 @@
 node('ben') {
-   wihtEnv(['value=World']) {
+   wihtEnv(['value = World']) {
       stage('Preparation') { // for display purposes
          echo "Preparation, ${value}"
          sh "cd /home/benlue/android/lineage; ls -lah"
