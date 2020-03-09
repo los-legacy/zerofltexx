@@ -1,5 +1,5 @@
 node('ben') {
-   withEnv(['TEST=test', AUTO=auto']) {
+   withEnv(['TEST=test', 'AUTO=auto']) {
       stage('Preparation') { // for display purposes
          print env.TEST
          sh "cd /home/benlue/android/lineage; ls -lah"
