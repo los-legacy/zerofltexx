@@ -1,7 +1,7 @@
 node('ben') {
-   wihtEnv(['value = World']) {
+   withEnv(['TEST=test']) {
       stage('Preparation') { // for display purposes
-         print env.HELLO
+         print env.TEST
          sh "cd /home/benlue/android/lineage; ls -lah"
       }
       stage('RepoSync') { // for display purposes
