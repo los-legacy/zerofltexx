@@ -1,6 +1,7 @@
 node('ben') {
    stage('Preparation') { // for display purposes
       echo "Preparation"
+      sh "cd /home/benlue/android/lineage"
       sh "ls -lah"
    }
    stage('RepoSync') { // for display purposes
