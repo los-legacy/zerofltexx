@@ -1,12 +1,12 @@
 node('ben') {
-   withEnv(['TEST=test', 'AUTO=auto']) {
+   withEnv(['DEVICE=zerofltexx', 'BRANCH=lineage-17.1']) {
       stage('Preparation') { // for display purposes
-         print env.TEST
+         print env.DEVICE
          sh "cd /home/benlue/android/lineage; ls -lah"
       }
       stage('RepoSync') { // for display purposes
          echo "RepoSync"
-         print env.AUTO
+         print env.BRANCH
       }
       stage('Build') { // for display purposes
          echo "Build"
