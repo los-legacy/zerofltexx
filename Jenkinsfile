@@ -8,7 +8,7 @@ node('ben') {
    stage('Build') { // for display purposes
       echo "Build"
    }
-   stage('Upload') { // for display purposes
+   stage('OTA Upload') { // for display purposes
       echo "Upload"
    }
 }
