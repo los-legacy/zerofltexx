@@ -1,6 +1,7 @@
 node('ben') {
    stage('Preparation') { // for display purposes
       echo "Preparation"
+      sh "ls -lah"
    }
    stage('RepoSync') { // for display purposes
       echo "RepoSync"
