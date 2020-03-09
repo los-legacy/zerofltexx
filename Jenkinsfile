@@ -6,7 +6,7 @@ node('ben') {
       }
       stage('RepoSync') { // for display purposes
          echo "RepoSync"
-         sh "ls -lah env.LOS_PATH"
+         sh "ls -lah $env.LOS_PATH"
          print env.BRANCH
       }
       stage('Build') { // for display purposes
