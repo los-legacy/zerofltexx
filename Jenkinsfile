@@ -46,7 +46,7 @@ node('ben') {
             set +e
 	    cd "$SYSTEM_PATH"
             echo $TARGET_DATE
-	    printenv
+	    #printenv
          '''
       }
    }
