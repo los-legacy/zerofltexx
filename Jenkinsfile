@@ -2,7 +2,7 @@ node('ben') {
    withEnv([
       'DEVICE=zerofltexx', 
       'SYSTEM_PATH=/home/benlue/android/lineage',
-      'OUTPUT_PATH=$env.SYSTEM_PATH/out/target/product/$env.DEVICE',
+      'OUTPUT_PATH=$SYSTEM_PATH/out/target/product/$DEVICE',
       'FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$env.DEVICE.zip',
       'SEARCH_FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$env.DEVICE.zip',
       'ROMTYPE="unofficial',
