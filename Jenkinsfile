@@ -12,6 +12,7 @@ node('ben') {
       stage('Preparation') { // for display purposes
          sh "rm -rf $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/*"
          sh "wget $env.LOCAL_MANIFESTS_URL -O $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/zero.xml"
+         sh "ls -lah $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/"
       }
       stage('RepoSync') { // for display purposes
          //sh "cd $env.SYSTEM_PATH; export PATH=~/bin:$PATH; repo sync --no-clone-bundle --force-sync"
