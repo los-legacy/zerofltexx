@@ -2,11 +2,7 @@ node('ben') {
    withEnv([
       'DEVICE=zerofltexx', 
       'SYSTEM_PATH=/home/benlue/android/lineage',
-      'OUTPUT_PATH=/home/benlue/android/lineage/out/target/product/zerofltexx',
-      'FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-zerofltexx.zip',
-      'SEARCH_FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-zerofltexx.zip',
-      'ROMTYPE="unofficial',
-      'VERSION=17.1',
+      'DEV_UL_SCRIPT=https://raw.githubusercontent.com/los-legacy/zerofltexx/lineage-17.1/$DEVICE_upload_script.sh',
       'LOCAL_MANIFESTS_URL=https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-17.1/zero.xml',
       'LOCAL_MANIFESTS_PATH=.repo/local_manifests', 
    ]) {
@@ -15,7 +11,8 @@ node('ben') {
             set +e
             rm -rf $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/*
             wget $env.LOCAL_MANIFESTS_URL -O $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/zero.xml
-            ls -lah $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/
+	    wget $env.DEV_UL_SCRIPT -O $env.SYSTEM_PATH/$DEVICE_upload_script.sh
+            ls -lah $env.SYSTEM_PATH/
          """
       }
       stage('RepoSync') { // for display purposes
