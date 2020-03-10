@@ -2,8 +2,8 @@ node('ben') {
    withEnv([
       'DEVICE=zerofltexx', 
       'SYSTEM_PATH=/home/benlue/android/lineage',
-      'FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$DEVICE.zip',
-      'SEARCH_FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$DEVICE.zip',
+      'FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$env.DEVICE.zip',
+      'SEARCH_FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$env.DEVICE.zip',
       'ROMTYPE="unofficial',
       'VERSION=17.1',
       'LOCAL_MANIFESTS_URL=https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-17.1/zero.xml',
@@ -30,9 +30,9 @@ else
 fi 
 
 export SYSTEM_PATH=/home/benlue/android/lineage
-export OUTPUT_PATH=$SYSTEM_PATH/out/target/product/$DEVICE
-export FILENAME="lineage-17.1-$TARGET_DATE-UNOFFICIAL-$DEVICE.zip"
-export SEARCH_FILENAME="lineage-17.1-$TARGET_DATE-UNOFFICIAL-$DEVICE.zip"
+export OUTPUT_PATH=$SYSTEM_PATH/out/target/product/$env.DEVICE
+export FILENAME="lineage-17.1-$TARGET_DATE-UNOFFICIAL-$env.DEVICE.zip"
+export SEARCH_FILENAME="lineage-17.1-$TARGET_DATE-UNOFFICIAL-$env.DEVICE.zip"
 export ROMTYPE="unofficial"
 export VERSION="17.1"
 
@@ -62,14 +62,14 @@ if [ -e $OUTPUT_PATH/$FILENAME ]; then
 	MD5SUM=$(cat $OUTPUT_PATH/$FILENAME".md5sum" | awk \'{ print $1 }\')	
 	FILESIZE=$(stat -c%s $OUTPUT_PATH/$FILENAME )	
 	
-	URL="https://los-legacy.de/$DEVICE/$FILENAME"
+	URL="https://los-legacy.de/$env.DEVICE/$FILENAME"
 	DATETIME=$(date -u +"%F %H:%M:%S")
 	
 	echo
 	echo "Übertrage Rom in Datenbank"
 	echo "URL: $URL"
 	echo "Filename: $FILENAME"
-	echo "Device: $DEVICE"
+	echo "Device: $env.DEVICE"
 	echo "Storage Directory: $STORAGE_DIR"
 	echo "OS Version: $VERSION"
 	echo "$DATETIME"
@@ -80,14 +80,14 @@ if [ -e $OUTPUT_PATH/$FILENAME ]; then
 	NO_SUCCESS=1	
 	while [ "$NO_SUCCESS" != "0" ]; do
 		echo "Rom: $FILENAME wird hochgeladen"
-		scp $OUTPUT_PATH/$FILENAME $USER@los-legacy.de:/var/www/html/files/$DEVICE/
+		scp $OUTPUT_PATH/$FILENAME $USER@los-legacy.de:/var/www/html/files/$env.DEVICE/
 		NO_SUCCESS=$?;
 	done
 	
 	NO_SUCCESS=1
 	while [ "$NO_SUCCESS" != "0" ]; do
 		echo "md5 File: $FILENAME.md5sum wird hochgeladen"
-		scp $OUTPUT_PATH/$FILENAME.md5sum $USER@los-legacy.de:/var/www/html/files/$DEVICE/
+		scp $OUTPUT_PATH/$FILENAME.md5sum $USER@los-legacy.de:/var/www/html/files/$env.DEVICE/
 		NO_SUCCESS=$?;		
 	done	
 	
@@ -101,11 +101,11 @@ if [ -e $OUTPUT_PATH/$FILENAME ]; then
 	done
 
 	echo "Veröffentliche Build von heute"
-	echo "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask addrom --filename $FILENAME --device $DEVICE --version $VERSION --datetime \\""$DATETIME"\\" --romtype $ROMTYPE --md5sum $MD5SUM --size "$FILESIZE" --url $URL"
+	echo "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask addrom --filename $FILENAME --device $env.DEVICE --version $VERSION --datetime \\""$DATETIME"\\" --romtype $ROMTYPE --md5sum $MD5SUM --size "$FILESIZE" --url $URL"
 
 	NO_SUCCESS=1
 	while [ "$NO_SUCCESS" != "0" ]; do		
-		ssh $USER@los-legacy.de "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask addrom --filename $FILENAME --device $DEVICE --version $VERSION --datetime \\""$DATETIME"\\" --romtype $ROMTYPE --md5sum $MD5SUM --size "$FILESIZE" --url $URL"
+		ssh $USER@los-legacy.de "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask addrom --filename $FILENAME --device $env.DEVICE --version $VERSION --datetime \\""$DATETIME"\\" --romtype $ROMTYPE --md5sum $MD5SUM --size "$FILESIZE" --url $URL"
 		NO_SUCCESS=$?;	
 	done
 fi'''
