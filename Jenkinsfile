@@ -35,12 +35,12 @@ node('ben') {
          """
       }
       stage('OTA Upload') { // for display purposes
-	  sh '''#!/bin/bash
+	  sh """#!/bin/bash
             set +e
-	    cd "$SYSTEM_PATH"
-            echo "$TARGET_DATE"
+	    cd $env.SYSTEM_PATH
+            source "$DEVICE"_upload_script.sh
 	    #printenv
-         '''
+          """
       }
    }
 }
