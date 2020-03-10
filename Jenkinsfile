@@ -2,6 +2,7 @@ node('ben') {
    withEnv([
       'DEVICE=zerofltexx', 
       'SYSTEM_PATH=/home/benlue/android/lineage',
+      'OUTPUT_PATH=$env.SYSTEM_PATH/out/target/product/$env.DEVICE',
       'FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$env.DEVICE.zip',
       'SEARCH_FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$env.DEVICE.zip',
       'ROMTYPE="unofficial',
@@ -22,7 +23,7 @@ node('ben') {
             set +e
             cd $env.SYSTEM_PATH
             export PATH=~/bin:$PATH
-            repo sync --no-clone-bundle --force-sync
+            #repo sync --no-clone-bundle --force-sync
          """
       }
       stage('Build') { // for display purposes
@@ -30,15 +31,22 @@ node('ben') {
             set +e
             cd $env.SYSTEM_PATH
             export PATH=~/bin:$PATH
-            make clean
+            #make clean
             source build/envsetup.sh
-            breakfast $env.DEVICE
-            brunch $env.DEVICE
+            #breakfast $env.DEVICE
+            #brunch $env.DEVICE
          """
       }
       stage('OTA Upload') { // for display purposes
          sh """#!/bin/bash
             set +e
+            clear
+            if [ -z $@ ]; then
+	            export TARGET_DATE=$(date +"%Y%m%d");
+            else
+	            export TARGET_DATE=$@;
+            fi
+            cd $env.SYSTEM_PATH
             ls -lah
          """
       }
