@@ -40,11 +40,12 @@ node('ben') {
       stage('OTA Upload') { // for display purposes
          sh '''#!/bin/bash
             set +e
+	    cd $env.SYSTEM_PATH
             if [ -z $@ ]; then
-	export TARGET_DATE=$(date +"%Y%m%d");
-else
-	export TARGET_DATE=$@;
-fi 
+		export TARGET_DATE=$(date +"%Y%m%d");
+	    else
+		export TARGET_DATE=$@;
+	    fi 
             ls -lah
          '''
       }
