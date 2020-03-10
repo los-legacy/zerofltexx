@@ -41,10 +41,7 @@ node('ben') {
          sh """#!/bin/bash
             set +e
             clear
-            if [ -z $@ ]; then
-	            export TARGET_DATE=$(date +"%Y%m%d");
-            else
-	            export TARGET_DATE=$@;
+            export TARGET_DATE=$(date +"%Y%m%d");
             fi
             cd $env.SYSTEM_PATH
             ls -lah
