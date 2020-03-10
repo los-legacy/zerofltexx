@@ -21,7 +21,7 @@ node('ben') {
       }
       stage('OTA Upload') { // for display purposes
          sh "cd $env.SYSTEM_PATH"
-         sh "printenv"
+         echo "Device: ${DEVICE}"
       }
    }
 }
