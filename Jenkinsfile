@@ -17,7 +17,8 @@ node('ben') {
          //sh "cd $env.SYSTEM_PATH; export PATH=~/bin:$PATH; repo sync --no-clone-bundle --force-sync"
       }
       stage('Build') { // for display purposes
-         sh "cd $env.SYSTEM_PATH; export PATH=~/bin:$PATH; make clean; source build/envsetup.sh; breakfast $env.DEVICE; brunch $env.DEVICE"
+         //sh "cd $env.SYSTEM_PATH; export PATH=~/bin:$PATH; make clean; source build/envsetup.sh; breakfast $env.DEVICE; brunch $env.DEVICE"
+         sh '''#!/bin/bash\nsource build/envsetup.sh\nexport USE_CCACHE=1\nprebuilts/misc/linux-x86/ccache/ccache -M 50G\nbreakfast "${DEVICE}"\nprintenv'''
       }
       stage('OTA Upload') { // for display purposes
          sh "ls -lah"
