@@ -45,7 +45,7 @@ node('ben') {
 	  sh '''#!/bin/bash
             set +e
 	    cd "$SYSTEM_PATH"
-            echo $TARGET_DATE
+            echo "$TARGET_DATE"
 	    #printenv
          '''
       }
