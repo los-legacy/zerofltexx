@@ -5,7 +5,7 @@ node('ben') {
       'FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$DEVICE.zip',
       'SEARCH_FILENAME=lineage-17.1-$TARGET_DATE-UNOFFICIAL-$DEVICE.zip',
       'ROMTYPE="unofficial',
-      'VERSION=17.1'
+      'VERSION=17.1',
       'LOCAL_MANIFESTS_URL=https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-17.1/zero.xml',
       'LOCAL_MANIFESTS_PATH=.repo/local_manifests', 
    ]) {
