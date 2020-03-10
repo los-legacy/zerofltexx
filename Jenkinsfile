@@ -40,10 +40,6 @@ node('ben') {
       stage('OTA Upload') { // for display purposes
          sh """#!/bin/bash
             set +e
-            clear
-            export TARGET_DATE=$(date +"%Y%m%d");
-            fi
-            cd $env.SYSTEM_PATH
             ls -lah
          """
       }
