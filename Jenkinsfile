@@ -38,10 +38,6 @@ node('ben') {
          """
       }
       stage('OTA Upload') { // for display purposes
-         script {
-  	  DATE_TAG = java.time.LocalDate.now()
-          DATETIME_TAG = java.time.LocalDateTime.now()
-         }
 	  sh '''#!/bin/bash
             set +e
 	    cd "$SYSTEM_PATH"
