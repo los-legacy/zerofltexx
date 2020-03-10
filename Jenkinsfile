@@ -38,7 +38,7 @@ node('ben') {
 	  sh """#!/bin/bash
             set +e
 	    cd $env.SYSTEM_PATH
-            source zerofltexx_upload_script.sh
+            source publish_rom.sh
 	    #printenv
           """
       }
