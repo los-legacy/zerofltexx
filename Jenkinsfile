@@ -20,8 +20,8 @@ node('ben') {
          //sh "cd $env.SYSTEM_PATH; export PATH=~/bin:$PATH; make clean; source build/envsetup.sh; lunch lineage_$env.DEVICE-userdebug;m"
       }
       stage('OTA Upload') { // for display purposes
-         sh "cd $env.SYSTEM_PATH"
-         sh "echo $PWD"
+         sh "cd $env.SYSTEM_PATH;echo $PWD"
+
       }
    }
 }
