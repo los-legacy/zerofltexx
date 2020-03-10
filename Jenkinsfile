@@ -38,7 +38,7 @@ node('ben') {
          """
       }
       stage('OTA Upload') { // for display purposes
-         sh """#!/bin/bash
+         sh '''#!/bin/bash
             set +e
             if [ -z $@ ]; then
 	export TARGET_DATE=$(date +"%Y%m%d");
@@ -46,7 +46,7 @@ else
 	export TARGET_DATE=$@;
 fi 
             ls -lah
-         """
+         '''
       }
    }
 }
