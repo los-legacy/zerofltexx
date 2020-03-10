@@ -18,7 +18,15 @@ node('ben') {
          //sh "cd $env.SYSTEM_PATH; export PATH=~/bin:$PATH; repo sync --no-clone-bundle --force-sync"
       }
       stage('Build') { // for display purposes
-         sh "cd $env.SYSTEM_PATH; export PATH=~/bin:$PATH; make clean; source build/envsetup.sh; breakfast $env.DEVICE; brunch $env.DEVICE"
+         sh '''#!/bin/bash
+         set +e
+         cd $env.SYSTEM_PATH
+         export PATH=~/bin:$PATH
+         make clean
+         source build/envsetup.sh
+         breakfast $env.DEVICE
+         brunch $env.DEVICE
+         '''
       }
       stage('OTA Upload') { // for display purposes
          sh "ls -lah"
