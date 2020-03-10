@@ -45,12 +45,7 @@ node('ben') {
 	  sh '''#!/bin/bash
             set +e
 	    cd "$SYSTEM_PATH"
-            if [ -z $@ ]; then
-		export TARGET_DATE=$(date +"%Y%m%d");
-	    else
-		export TARGET_DATE=$@;
-	    fi
-	    echo ${DATETIME_TAG}
+            echo $TARGET_DATE
 	    printenv
          '''
       }
