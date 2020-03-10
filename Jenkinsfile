@@ -38,14 +38,19 @@ node('ben') {
          """
       }
       stage('OTA Upload') { // for display purposes
-         sh '''#!/bin/bash
+         script {
+  	  DATE_TAG = java.time.LocalDate.now()
+          DATETIME_TAG = java.time.LocalDateTime.now()
+         }
+	  sh '''#!/bin/bash
             set +e
 	    cd "$SYSTEM_PATH"
             if [ -z $@ ]; then
 		export TARGET_DATE=$(date +"%Y%m%d");
 	    else
 		export TARGET_DATE=$@;
-	    fi 
+	    fi
+	    echo ${DATETIME_TAG}
 	    printenv
          '''
       }
