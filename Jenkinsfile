@@ -46,9 +46,7 @@ node('ben') {
 	    else
 		export TARGET_DATE=$@;
 	    fi 
-	    echo "$OUTPUT_PATH"
-	    echo "$FILENAME"
-	    echo "$SEARCH_FILENAME"
+	    echo "$env.OUTPUT_PATH"
          '''
       }
    }
