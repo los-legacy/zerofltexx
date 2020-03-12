@@ -19,8 +19,14 @@ node('ben') {
          sh """#!/bin/bash
             set +e
             cd $env.SYSTEM_PATH
-            export PATH=~/bin:$PATH
-            #repo sync --no-clone-bundle --force-sync
+            mkdir -p ~/bin
+	    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+	    chmod a+x ~/bin/repo
+	    export PATH=~/bin:$PATH
+	    git config --global user.name 'Jenkins'
+	    git config --global user.email 'jenkins@s3root.ovh'
+	    repo init -u https://github.com/LineageOS/android.git -b lineage-17.1
+	    repo sync --no-clone-bundle --force-sync
          """
       }
       stage('Build') { // for display purposes
@@ -28,7 +34,7 @@ node('ben') {
             set +e
             cd $env.SYSTEM_PATH
             export PATH=~/bin:$PATH
-            #make clean
+            make clean
             source build/envsetup.sh
             #breakfast $env.DEVICE
             #brunch $env.DEVICE
