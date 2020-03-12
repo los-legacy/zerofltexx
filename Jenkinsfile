@@ -9,9 +9,10 @@ node('ben') {
       stage('Preparation') { // for display purposes
          sh """#!/bin/bash
             set +e
-            rm -rf $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/*
-            wget $env.LOCAL_MANIFESTS_URL -O $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/zero.xml
-	    wget $env.DEV_UL_SCRIPT -O $env.SYSTEM_PATH/zerofltexx_upload_script.sh
+	    export PATH=~/bin:$PATH
+	    mkdir -p ~/bin
+	    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+	    chmod a+x ~/bin/repo
             ls -lah $env.SYSTEM_PATH/
          """
       }
@@ -19,13 +20,13 @@ node('ben') {
          sh """#!/bin/bash
             set +e
             cd $env.SYSTEM_PATH
-            mkdir -p ~/bin
-	    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-	    chmod a+x ~/bin/repo
 	    export PATH=~/bin:$PATH
 	    git config --global user.name 'Jenkins'
 	    git config --global user.email 'jenkins@s3root.ovh'
 	    repo init -u https://github.com/LineageOS/android.git -b lineage-17.1
+	    rm -rf $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/*
+            wget $env.LOCAL_MANIFESTS_URL -O $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/zero.xml
+	    wget $env.DEV_UL_SCRIPT -O $env.SYSTEM_PATH/zerofltexx_upload_script.sh
 	    repo sync --no-clone-bundle --force-sync
          """
       }
