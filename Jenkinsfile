@@ -24,6 +24,7 @@ node('ben') {
 	    git config --global user.name 'Jenkins'
 	    git config --global user.email 'jenkins@s3root.ovh'
 	    repo init -u https://github.com/LineageOS/android.git -b lineage-17.1
+	    mkdir -p $env.LOCAL_MANIFESTS_PATH
 	    rm -rf $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/*
             wget $env.LOCAL_MANIFESTS_URL -O $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/zero.xml
 	    wget $env.DEV_UL_SCRIPT -O $env.SYSTEM_PATH/zerofltexx_upload_script.sh
