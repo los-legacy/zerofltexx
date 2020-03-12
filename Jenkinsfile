@@ -38,8 +38,8 @@ node('ben') {
             export PATH=~/bin:$PATH
             make clean
             source build/envsetup.sh
-            #breakfast $env.DEVICE
-            #brunch $env.DEVICE
+            breakfast $env.DEVICE
+            brunch $env.DEVICE
          """
       }
       stage('OTA Upload') { // for display purposes
