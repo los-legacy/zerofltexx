@@ -47,7 +47,7 @@ node('ben') {
 	  sh """#!/bin/bash
             set +e
 	    cd ${SYSTEM_PATH}
-            // Todo - FIX OTA Upload
+            /* Todo - FIX OTA Upload */
 	    #source publish_${DEVICE}.sh
 	    #printenv
           """
