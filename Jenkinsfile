@@ -27,8 +27,8 @@ node('ben') {
 	    repo init -u https://github.com/LineageOS/android.git -b ${BRANCH}
 	    mkdir -p $env.LOCAL_MANIFESTS_PATH
 	    rm -rf $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/*
-            wget $env.LOCAL_MANIFESTS_URL -O $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/zero.xml
-	    wget $env.DEV_UL_SCRIPT -O ${SYSTEM_PATH}/${DEVICE}_upload_script.sh
+            wget ${LOCAL_MANIFESTS_URL} -O ${SYSTEM_PATH}/${LOCAL_MANIFESTS_PATH}/zero.xml
+	    wget ${DEV_UL_SCRIPT} -O ${SYSTEM_PATH}/${DEVICE}_upload_script.sh
 	    #repo sync --no-clone-bundle --force-sync
          """
       }
