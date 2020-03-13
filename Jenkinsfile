@@ -39,7 +39,7 @@ node('ben') {
             make clean
             source build/envsetup.sh
             breakfast $env.DEVICE
-            brunch -j$(nproc) $env.DEVICE 
+            brunch "-j$(nproc)" $env.DEVICE 
          """
       }
       stage('OTA Upload') { // for display purposes
