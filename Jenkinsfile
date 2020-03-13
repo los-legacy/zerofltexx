@@ -63,8 +63,7 @@ node('ben') {
 	 	export TARGET_DATE=$@;
 	    fi 
 	    date=$(date '+%Y%m%d');
-            echo "Upload ${BRANCH}-$date-${ROMTYPE}-${DEVICE}.zip to OTA"
-	    echo "$TARGET_DATE"
+            echo "Upload ${BRANCH}-$TARGET_DATE-${ROMTYPE}-${DEVICE}.zip to OTA"
 	  '''
       }
    }
