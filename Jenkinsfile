@@ -47,6 +47,7 @@ node('ben') {
 	  sh """#!/bin/bash
             set +e
 	    cd ${SYSTEM_PATH}
+	    export PATH=~/bin:$PATH
             /* Todo - FIX OTA Upload */
 	    #source publish_${DEVICE}.sh
 	    #printenv
