@@ -65,7 +65,7 @@ node('ben') {
 	    fi 
 	    date=$(date '+%Y%m%d');
             echo "Upload ${BRANCH}-$TARGET_DATE-${ROMTYPE}-${DEVICE}.zip to OTA"
-	    echo "$OUTPUT_PATH"
+	    echo "${OUTPUT_PATH}"
 	  '''
       }
    }
