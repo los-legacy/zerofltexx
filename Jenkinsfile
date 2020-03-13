@@ -54,8 +54,9 @@ node('ben') {
 	    printenv
           """
 	  */
-	  echo "Upload ${DEVICE} ${BRANCH} to OTA"
-	  
+	  echo "Upload  ${BRANCH}-${DEVICE} to OTA"
+	  def now = new Date()
+          println now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
       }
    }
 }
