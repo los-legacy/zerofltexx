@@ -28,7 +28,7 @@ node('ben') {
 	    rm -rf $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/*
             wget $env.LOCAL_MANIFESTS_URL -O $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/zero.xml
 	    wget $env.DEV_UL_SCRIPT -O $env.SYSTEM_PATH/zerofltexx_upload_script.sh
-	    repo sync --no-clone-bundle --force-sync
+	    repo sync --no-clone-bundle --force-sync -j$(nproc)
          """
       }
       stage('Build') { // for display purposes
@@ -39,7 +39,7 @@ node('ben') {
             make clean
             source build/envsetup.sh
             breakfast $env.DEVICE
-            brunch $env.DEVICE
+            brunch -j$(nproc) $env.DEVICE 
          """
       }
       stage('OTA Upload') { // for display purposes
