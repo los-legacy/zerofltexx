@@ -54,11 +54,10 @@ node('ben') {
 	    printenv
           """
 	  */
-	  echo "Upload  ${BRANCH}-${DEVICE} to OTA"
 	  sh '''#!/bin/bash
 	    set +e
 	    date=$(date '+%Y%m%d');
-            echo "${BRANCH}-$date-${DEVICE}.zip"
+            echo "Upload ${BRANCH}-$date-${DEVICE}.zip to OTA"
 	  '''
       }
    }
