@@ -14,7 +14,7 @@ node('ben') {
 	    mkdir -p ~/bin
 	    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 	    chmod a+x ~/bin/repo
-            ls -lah $env.SYSTEM_PATH/
+            ls -lah ${SYSTEM_PATH}/
          """
       }
       stage('RepoSync') { // for display purposes
@@ -25,8 +25,8 @@ node('ben') {
 	    git config --global user.name 'Jenkins'
 	    git config --global user.email 'jenkins@s3root.ovh'
 	    repo init -u https://github.com/LineageOS/android.git -b ${BRANCH}
-	    mkdir -p $env.LOCAL_MANIFESTS_PATH
-	    rm -rf $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/*
+	    mkdir -p ${LOCAL_MANIFESTS_PATH}
+	    rm -rf ${SYSTEM_PATH}/${LOCAL_MANIFESTS_PATH}/*
             wget ${LOCAL_MANIFESTS_URL} -O ${SYSTEM_PATH}/${LOCAL_MANIFESTS_PATH}/zero.xml
 	    wget ${DEV_UL_SCRIPT} -O ${SYSTEM_PATH}/${DEVICE}_upload_script.sh
 	    #repo sync --no-clone-bundle --force-sync
