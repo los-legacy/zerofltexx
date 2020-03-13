@@ -10,6 +10,7 @@ node('ben') {
       'LOCAL_MANIFESTS_PATH=.repo/local_manifests', 
    ]) {
       stage('Preparation') { // for display purposes
+	 echo "Preparation process"
          sh """#!/bin/bash
             set +e
 	    export PATH=~/bin:$PATH
@@ -20,6 +21,7 @@ node('ben') {
          """
       }
       stage('RepoSync') { // for display purposes
+	 echo "RepoSync process"
          sh """#!/bin/bash
             set +e
             cd ${SYSTEM_PATH}
@@ -35,6 +37,7 @@ node('ben') {
          """
       }
       stage('Build') { // for display purposes
+	 echo "Build process"
          sh """#!/bin/bash
             set +e
             cd ${SYSTEM_PATH}
@@ -46,6 +49,7 @@ node('ben') {
          """
       }
       stage('OTA Upload') { // for display purposes
+	  echo "OTA Upload process"
 	  /* 
 	  sh """#!/bin/bash
             set +e
