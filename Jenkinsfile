@@ -57,8 +57,14 @@ node('ben') {
 	  */
 	  sh '''#!/bin/bash
 	    set +e
+	    if [ -z $@ ]; then
+		export TARGET_DATE=$(date +"%Y%m%d");
+	    else
+	 	export TARGET_DATE=$@;
+	    fi 
 	    date=$(date '+%Y%m%d');
             echo "Upload ${BRANCH}-$date-${ROMTYPE}-${DEVICE}.zip to OTA"
+	    echo "$TARGET_DATE"
 	  '''
       }
    }
