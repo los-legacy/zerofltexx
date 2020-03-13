@@ -2,7 +2,7 @@ node('ben') {
    withEnv([
       'DEVICE=zerofltexx',
       'BRANCH=lineage-17.1',
-      'DATE='date +%d%m%y'
+      'DATE="date +%d%m%y"'
       'SYSTEM_PATH=/home/benlue/android/lineage',
       'DEV_UL_SCRIPT=https://raw.githubusercontent.com/los-legacy/zerofltexx/lineage-17.1/zerofltexx_upload_script.sh',
       'LOCAL_MANIFESTS_URL=https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-17.1/zero.xml',
