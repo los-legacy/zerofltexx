@@ -55,7 +55,8 @@ node('ben') {
           """
 	  */
 	  echo "Upload  ${BRANCH}-${DEVICE} to OTA"
-	  echo "${DATE}"
+	  def now = new Date()
+	  println now
       }
    }
 }
