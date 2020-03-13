@@ -58,7 +58,7 @@ node('ben') {
 	  sh '''#!/bin/bash
 	    set +e
 	    date=$(date '+%Y%m%d');
-            echo "${BRANCH}$date"
+            echo "${BRANCH}-$date-${DEVICE}.zip"
 	  '''
       }
    }
