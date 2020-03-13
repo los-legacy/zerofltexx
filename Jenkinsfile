@@ -5,7 +5,6 @@ node('ben') {
       'ROMTYPE=unofficial',
       'SYSTEM_PATH=/home/benlue/android/lineage',
       'OUTPUT_PATH=/home/benlue/android/lineage/out/target/product',
-      /* 'DEV_UL_SCRIPT=https://raw.githubusercontent.com/los-legacy/zerofltexx/lineage-17.1/zerofltexx_upload_script.sh', */
       'DEV_UL_SCRIPT=https://raw.githubusercontent.com/los-legacy/',
       'LOCAL_MANIFESTS_URL=https://raw.githubusercontent.com/los-legacy/local_manifests/lineage-17.1/zero.xml',
       'LOCAL_MANIFESTS_PATH=.repo/local_manifests', 
@@ -31,7 +30,6 @@ node('ben') {
 	    mkdir -p ${LOCAL_MANIFESTS_PATH}
 	    rm -rf ${SYSTEM_PATH}/${LOCAL_MANIFESTS_PATH}/*
             wget ${LOCAL_MANIFESTS_URL} -O ${SYSTEM_PATH}/${LOCAL_MANIFESTS_PATH}/zero.xml
-	    #wget ${DEV_UL_SCRIPT} -O ${SYSTEM_PATH}/${DEVICE}_upload_script.sh
 	    wget ${DEV_UL_SCRIPT}${DEVICE}/${BRANCH}/${DEVICE}_upload_script.sh -O ${SYSTEM_PATH}/${DEVICE}_upload_script.sh
 	    #repo sync --no-clone-bundle --force-sync
          """
