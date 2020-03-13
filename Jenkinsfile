@@ -31,7 +31,7 @@ node('ben') {
 	    rm -rf ${SYSTEM_PATH}/${LOCAL_MANIFESTS_PATH}/*
             wget ${LOCAL_MANIFESTS_URL} -O ${SYSTEM_PATH}/${LOCAL_MANIFESTS_PATH}/zero.xml
 	    wget ${DEV_UL_SCRIPT}${DEVICE}/${BRANCH}/${DEVICE}_upload_script.sh -O ${SYSTEM_PATH}/${DEVICE}_upload_script.sh
-	    #repo sync --no-clone-bundle --force-sync
+	    repo sync --no-clone-bundle --force-sync
          """
       }
       stage('Build') { // for display purposes
@@ -42,7 +42,7 @@ node('ben') {
             make clean
             source build/envsetup.sh
             breakfast ${DEVICE}
-            #brunch ${DEVICE}
+            brunch ${DEVICE}
          """
       }
       stage('OTA Upload') { // for display purposes
