@@ -55,8 +55,9 @@ node('ben') {
           """
 	  */
 	  echo "Upload  ${BRANCH}-${DEVICE} to OTA"
-	  def now = new Date("yyyyMMdd")
-	  println now
+	  def start_time = new Date()
+          def sdf = new SimpleDateFormat("yyyyMMd‌​dHH:mm:ss")
+          println sdf.format(start_time)
       }
    }
 }
