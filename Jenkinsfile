@@ -54,7 +54,8 @@ node('ben') {
 	    printenv
           """
 	  */
-	  echo 'test'
+	  echo "Upload ${DEVICE} ${BRANCH} to OTA"
+	  
       }
    }
 }
