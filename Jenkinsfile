@@ -55,9 +55,8 @@ node('ben') {
           """
 	  */
 	  echo "Upload  ${BRANCH}-${DEVICE} to OTA"
-	  def start_time = new Date()
-          def sdf = new SimpleDateFormat("yyyyMMd‌​dHH:mm:ss")
-          println sdf.format(start_time)
+	  def now = new Date()
+          println now.format("yyyyMMdd", TimeZone.getTimeZone('UTC+1'))
       }
    }
 }
