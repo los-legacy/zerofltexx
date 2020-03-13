@@ -27,7 +27,7 @@ node('ben') {
 	    mkdir -p $env.LOCAL_MANIFESTS_PATH
 	    rm -rf $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/*
             wget $env.LOCAL_MANIFESTS_URL -O $env.SYSTEM_PATH/$env.LOCAL_MANIFESTS_PATH/zero.xml
-	    wget $env.DEV_UL_SCRIPT -O $env.SYSTEM_PATH/zerofltexx_upload_script.sh
+	    wget $env.DEV_UL_SCRIPT -O $env.SYSTEM_PATH/${DEVICE}_upload_script.sh
 	    repo sync --no-clone-bundle --force-sync
          """
       }
