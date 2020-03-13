@@ -58,7 +58,7 @@ node('ben') {
 	  sh '''#!/bin/bash
 	    set +e
 	    date=$(date '+%Y%m%d');
-            echo "$date"
+            echo "${BRANCH}$date"
 	  '''
       }
    }
