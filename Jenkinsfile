@@ -32,7 +32,7 @@ node('ben') {
 	    rm -rf ${SYSTEM_PATH}/${LOCAL_MANIFESTS_PATH}/*
             wget ${LOCAL_MANIFESTS_URL} -O ${SYSTEM_PATH}/${LOCAL_MANIFESTS_PATH}/zero.xml
 	    #wget ${DEV_UL_SCRIPT} -O ${SYSTEM_PATH}/${DEVICE}_upload_script.sh
-	    wget ${DEV_UL_SCRIPT}/${DEVICE}/${BRANCH}/${DEVICE}_upload_script.sh -O ${SYSTEM_PATH}/${DEVICE}_upload_script.sh
+	    wget ${DEV_UL_SCRIPT}${DEVICE}/${BRANCH}/${DEVICE}_upload_script.sh -O ${SYSTEM_PATH}/${DEVICE}_upload_script.sh
 	    #repo sync --no-clone-bundle --force-sync
          """
       }
