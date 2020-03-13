@@ -56,6 +56,10 @@ node('ben') {
 	    printenv
           """
 	  */
+	      script {
+	      	foo = "bar"
+	      }
+	      
 	  sh '''#!/bin/bash
 	    set +e
 	    if [ -z $@ ]; then
@@ -65,7 +69,7 @@ node('ben') {
 	    fi 
 	    date=$(date '+%Y%m%d');
             echo "Upload ${BRANCH}-$TARGET_DATE-${ROMTYPE}-${DEVICE}.zip to OTA"
-	    echo "${OUTPUT_PATH}"
+	    echo ${foo}
 	  '''
       }
    }
