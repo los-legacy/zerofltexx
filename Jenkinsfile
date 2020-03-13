@@ -20,7 +20,7 @@ node('ben') {
       stage('RepoSync') { // for display purposes
          sh """#!/bin/bash
             set +e
-            cd $env.SYSTEM_PATH
+            cd ${SYSTEM_PATH}
 	    export PATH=~/bin:$PATH
 	    git config --global user.name 'Jenkins'
 	    git config --global user.email 'jenkins@s3root.ovh'
@@ -35,19 +35,20 @@ node('ben') {
       stage('Build') { // for display purposes
          sh """#!/bin/bash
             set +e
-            cd $env.SYSTEM_PATH
+            cd ${SYSTEM_PATH}
             export PATH=~/bin:$PATH
             make clean
             source build/envsetup.sh
-            breakfast $env.DEVICE
-            #brunch $env.DEVICE 
+            breakfast ${DEVICE}
+            #brunch ${DEVICE}
          """
       }
       stage('OTA Upload') { // for display purposes
 	  sh """#!/bin/bash
             set +e
-	    cd $env.SYSTEM_PATH
-            source publish_rom.sh
+	    cd ${SYSTEM_PATH}
+            // Todo - FIX OTA Upload
+	    #source publish_${DEVICE}.sh
 	    #printenv
           """
       }
