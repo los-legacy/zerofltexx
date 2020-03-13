@@ -57,7 +57,7 @@ node('ben') {
 	  echo "Upload  ${BRANCH}-${DEVICE} to OTA"
 	  def now = new Date()
           #println now.format("yyyyMMdd", TimeZone.getTimeZone('UTC+1'))
-	  echo "${BRANCH}-now.format("yyyyMMdd", TimeZone.getTimeZone('UTC+1'))"
+	  echo "${BRANCH}-$(date '+%Y-%m-%d')"
       }
    }
 }
