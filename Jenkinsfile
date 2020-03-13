@@ -57,8 +57,8 @@ node('ben') {
 	  echo "Upload  ${BRANCH}-${DEVICE} to OTA"
 	  sh '''#!/bin/bash
 	    set +e
-	    dt=$(date '+%d/%m/%Y %H:%M:%S');
-            echo "$dt"
+	    date=$(date '+%Y%m%d');
+            echo "$date"
 	  '''
       }
    }
