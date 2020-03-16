@@ -10,6 +10,8 @@ fi
 
 cd "${SYSTEM_PATH}" || exit
 
+export SEARCH_FILENAME="$BRANCH-$TARGET_DATE-UNOFFICIAL-$DEVICE.zip"
+
 echo "$OUTPUT_PATH"
 echo "$FILENAME"
 echo "$SEARCH_FILENAME"
