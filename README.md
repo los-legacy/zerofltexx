@@ -1,6 +1,6 @@
 # Los-Legacy Jenkins Build Script
 ## Using the Jenkins Build Script
-Usage: Edit your ENV each device
+Usage: Edit your ENV each device in Jenkinsfile
 
 ```
 DEVICE="<Your Device>"
