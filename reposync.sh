@@ -1,7 +1,7 @@
 #!/bin/bash
 # Copyright 2020 los-legacy.de, All rights reserved
 # Mitch, Exodusnick, BenLue
-#set -xe
+set +xe
 cd "${SYSTEM_PATH}" || exit
 export PATH=~/bin:$PATH
 git config --global user.name 'Jenkins'
