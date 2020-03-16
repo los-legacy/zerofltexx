@@ -9,5 +9,4 @@ source build/envsetup.sh
 export USE_CCACHE=1
 ccache -M 50G
 export CCACHE_COMPRESS=1
-echo "${DEVICE}"
 breakfast "${DEVICE}"; brunch "${DEVICE}"
