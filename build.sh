@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2020 los-legacy.de, All rights reserved
+# Copyright (C) 2020 The Los-Legacy Open Source Project
 # Mitch, Exodusnick, BenLue
 set +xe
 cd "${SYSTEM_PATH}" || exit
