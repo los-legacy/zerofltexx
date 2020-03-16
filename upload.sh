@@ -48,12 +48,12 @@ if [ -e "$OUTPUT_PATH"/"$FILENAME" ]; then
 
   NO_SUCCESS=1  
     while [ "$NO_SUCCESS" != "0" ]; do
-      scp "${OUTPUT_PATH}"/"${DEVICE}"/"${BRANCH}"-"$TARGET_DATE"-"${ROMTYPE}"-"${DEVICE}".zip "$USER"@"${URL}":/var/www/html/files/"$DEVICE"/
+      scp "${OUTPUT_PATH}"/"${DEVICE}"/"${BRANCH}"-"$TARGET_DATE"-"${ROMTYPE}"-"${DEVICE}".zip "$USER"@los-legacy.de":/var/www/html/files/"$DEVICE"/
       NO_SUCCESS=$?;
     done
     NO_SUCCESS=1
     while [ "$NO_SUCCESS" != "0" ]; do
-      scp "${OUTPUT_PATH}"/"${DEVICE}"/"${BRANCH}"-"$TARGET_DATE"-"${ROMTYPE}"-"${DEVICE}".zip.md5sum "$USER"@"${URL}":/var/www/html/files/"$DEVICE"/
+      scp "${OUTPUT_PATH}"/"${DEVICE}"/"${BRANCH}"-"$TARGET_DATE"-"${ROMTYPE}"-"${DEVICE}".zip.md5sum "$USER"@los-legacy.de:/var/www/html/files/"$DEVICE"/
       NO_SUCCESS=$?;        
     done
     echo ""
@@ -61,7 +61,7 @@ if [ -e "$OUTPUT_PATH"/"$FILENAME" ]; then
     echo "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask delrom -f ${BRANCH}-$DATETIME-${ROMTYPE}-${DEVICE}.zip"
     NO_SUCCESS=1
     while [ "$NO_SUCCESS" != "0" ]; do
-      ssh "$USER"@"{$URL}" "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask delrom -f \${BRANCH}-\${TARGET_DATE}-\${ROMTYPE}-\${DEVICE}.zip"
+      ssh "$USER"@los-legacy.de "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask delrom -f \${BRANCH}-\${TARGET_DATE}-\${ROMTYPE}-\${DEVICE}.zip"
       NO_SUCCESS=$?;
     done
     echo ""
@@ -69,7 +69,7 @@ if [ -e "$OUTPUT_PATH"/"$FILENAME" ]; then
     echo "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask addrom --filename ${BRANCH}-$TARGET_DATE-${ROMTYPE}-${DEVICE}.zip --device $DEVICE --version $VERSION --datetime \"""$DATETIME""\" --romtype $OTA_ROMTYPE --md5sum $MD5SUM --size ""$FILESIZE"" --url ${URL}/${DEVICE}/${BRANCH}-${TARGET_DATE}-${ROMTYPE}-${DEVICE}.zip"
     NO_SUCCESS=1
     while [ "$NO_SUCCESS" != "0" ]; do      
-      ssh "$USER"@"${URL}" "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask addrom --filename ${BRANCH}-$TARGET_DATE-${ROMTYPE}-${DEVICE}.zip --device $DEVICE --version $VERSION --datetime \'""$DATETIME""\' --romtype $OTA_ROMTYPE --md5sum $MD5SUM --size ""$FILESIZE"" --url ${URL}/${DEVICE}/${BRANCH}-${TARGET_DATE}-${ROMTYPE}-${DEVICE}.zip"
+      ssh "$USER"@los-legacy.de "cd /opt/lineageos_updater && FLASK_APP=/opt/lineageos_updater/app.py flask addrom --filename ${BRANCH}-$TARGET_DATE-${ROMTYPE}-${DEVICE}.zip --device $DEVICE --version $VERSION --datetime \'""$DATETIME""\' --romtype $OTA_ROMTYPE --md5sum $MD5SUM --size ""$FILESIZE"" --url ${URL}/${DEVICE}/${BRANCH}-${TARGET_DATE}-${ROMTYPE}-${DEVICE}.zip"
       NO_SUCCESS=$?;    
     done
 fi
