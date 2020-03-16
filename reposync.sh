@@ -10,4 +10,4 @@ git config --global user.email 'jenkins@s3root.ovh'
 rm -rf "${SYSTEM_PATH:?}"/"${LOCAL_MANIFESTS_PATH}"/
 mkdir -p "${LOCAL_MANIFESTS_PATH}"
 wget "${LOCAL_MANIFESTS_URL}" -O "${SYSTEM_PATH}"/"${LOCAL_MANIFESTS_PATH}"/"${DEVICE}".xml
-repo sync --no-clone-bundle --force-sync
+#repo sync --no-clone-bundle --force-sync
