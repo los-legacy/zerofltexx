@@ -2,7 +2,7 @@ node('ben') {
     timestamps {
         withEnv([
             'DEVICE=zerofltexx',
-            'BRANCH=lineage-17.1',
+            'BRANCH=lineage-17.1-dev',
             'VERSION=17.1',
             'ROMTYPE=UNOFFICIAL',
             'OTA_ROMTYPE=unofficial',
