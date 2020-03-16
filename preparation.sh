@@ -1,7 +1,7 @@
 #!/bin/bash
 # Copyright 2020 los-legacy.de, All rights reserved
 # Mitch, Exodusnick, BenLue
-# set +xe
+set +xe
 export PATH=~/bin:$PATH
 mkdir -p ~/bin
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
