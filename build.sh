@@ -9,4 +9,4 @@ export USE_CCACHE=1
 ccache -M 50G
 export CCACHE_COMPRESS=1
 breakfast ${DEVICE}
-brunch \${DEVICE}
+brunch ${DEVICE}
