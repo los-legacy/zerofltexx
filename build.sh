@@ -1,6 +1,7 @@
 #!/bin/bash
 # Copyright 2020 los-legacy.de, All rights reserved
 # Mitch, Exodusnick, BenLue
+set +x
 cd "${SYSTEM_PATH}" || exit
 export PATH=~/bin:$PATH
 #make clean
