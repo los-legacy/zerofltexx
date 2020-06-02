@@ -6,4 +6,5 @@ export PATH=~/bin:$PATH
 mkdir -p ~/bin
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
+mkdir -p "${SYSTEM_PATH}"/libnativehelper/include/nativehelper/
 cp -r "${SYSTEM_PATH}"/build_script/UniquePtr.h "${SYSTEM_PATH}"/libnativehelper/include/nativehelper/
